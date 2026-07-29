@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uhm — Graphics Mod | Assetto Corsa</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&family=Vazirmatn:wght@300;700&display=swap');
+:root{--bg:#06060a;--card:#0e0e14;--red:#e63946;--text:#fff;--sub:#ccc;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Vazirmatn','Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+nav{display:flex;justify-content:center;gap:2.5rem;padding:1.2rem;background:rgba(6,6,10,.8);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.05)}
+nav a{color:var(--sub);text-decoration:none;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;transition:color .2s}
+nav a:hover{color:var(--red)}
+.hero{position:relative;height:92vh;background:url('hero-car.jpg') center/cover no-repeat;display:flex;align-items:center;padding:0 8%}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,6,10,.9) 0%,rgba(6,6,10,.3) 60%,transparent 100%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero h1{font-size:5rem;line-height:1.1;font-weight:900;text-transform:uppercase;letter-spacing:-.03em;margin-bottom:.5rem;background:linear-gradient(135deg,#fff 60%,var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero h2{color:var(--red);font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.5rem}
+.hero p{color:var(--sub);font-size:1.1rem;max-width:520px;margin-bottom:2rem}
+.btn{display:inline-block;padding:1rem 2.5rem;background:var(--red);color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:.9rem;transition:all .3s;box-shadow:0 0 25px rgba(230,57,70,.35)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 40px rgba(230,57,70,.7)}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;padding:5rem 8% 3rem;max-width:1200px;margin:0 auto}
+.card{background:var(--card);padding:2rem;border-radius:16px;border:1px solid rgba(255,255,255,.05)}
+.card h3{font-size:1.1rem;margin-bottom:.5rem}
+.card p{color:var(--sub);font-size:.9rem}
+.before-after{padding:3rem 8% 5rem;background:#09090e;display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:1200px;margin:0 auto}
+.before-after img{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.1)}
+.footer{padding:2rem 8%;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;color:var(--sub);font-size:.8rem}
+</style>
+</head>
+<body>
+<nav>
+<a href="#">Home</a>
+<a href="#">Features</a>
+<a href="#">Gallery</a>
+<a href="#">Installation</a>
+<a href="#">Performance</a>
+<a href="#">FAQ</a>
+<a href="#">Contact</a>
+</nav>
+<section class="hero">
+<div class="hero-content">
+<h2>Next-Gen Visual Experience</h2>
+<h1>Assetto Corsa<br>Graphics Mod</h1>
+<p>Push the limits of realism. Enhanced lighting, reflections, weather, and details for the ultimate driving experience.</p>
+<a href="#" class="btn">Download Now</a>
+</div>
+</section>
+<section class="features">
+<div class="card"><h3>Realistic Lighting</h3><p>Advanced lighting system with natural color tones and dynamic shadows.</p></div>
+<div class="card"><h3>Enhanced Weather</h3><p>Realistic rain, wet surfaces, puddles, and environmental effects.</p></div>
+<div class="card"><h3>Premium Reflections</h3><p>Ray-traced reflections for cars, tracks, and environments.</p></div>
+<div class="card"><h3>Improved Details</h3><p>Higher texture quality, better vegetation, and refined track details.</p></div>
+</section>
+<section class="before-after">
+<img src="before-after.jpg" alt="Before After"/>
+<div>
+<h2>Before / After</h2>
+<p>Compare default graphics with the enhanced experience of Uhm.</p>
+</div>
+</section>
+<footer class="footer">
+<div>Uhm Graphics Mod v2.5.0 — May 2024</div>
+<div>Assetto Corsa — PC Only</div>
+</footer>
+</body>
+</html>
