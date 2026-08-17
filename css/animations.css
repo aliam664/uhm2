@@ -1,0 +1,70 @@
+/* ============================================================
+   انیمیشن‌های پایه و حرکت کاهش‌یافته
+   ============================================================ */
+
+/* عناصر پیش از انیمیشن ورود (GSAP کنترل می‌کند) */
+
+.a-hidden {
+  opacity: 0;
+}
+
+/* پالس ملایم برای عناصر هایلایت */
+
+@keyframes soft-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--gold-line); }
+  50% { box-shadow: 0 0 26px 3px var(--gold-line); }
+}
+
+.is-pulsing { animation: soft-pulse 1.8s ease-in-out infinite; }
+
+/* درخشش خطی برای progress */
+
+@keyframes line-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ورود صحنه — کلاس کمکی (GSAP اصلی است) */
+
+.fade-enter {
+  animation: fade-enter 0.55s var(--ease-out) both;
+}
+
+@keyframes fade-enter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* چرخش دکمهٔ restart هنگام hover */
+
+.spin-once { animation: spin-once 0.6s var(--ease-out); }
+
+@keyframes spin-once {
+  to { transform: rotate(-360deg); }
+}
+
+/* ============================================================
+   Reduced Motion
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+
+  .is-pulsing { animation: none; }
+  .final-glow { animation: none; }
+  .progress-node.is-current .dot::after { animation: none; }
+}
+
+body.reduced-motion *,
+body.reduced-motion *::before,
+body.reduced-motion *::after {
+  animation-duration: 0.001s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.06s !important;
+}

@@ -1,0 +1,47 @@
+/* ============================================================
+   فونت‌ها — Vazirmatn (رابط کاربری) + Vazirmatn FD (فرمول‌ها)
+   فونت متغیر: تمام وزن‌ها در یک فایل
+   ============================================================ */
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("Vazirmatn-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* گونهٔ Farsi-Digits: ارقام لاتین (0-9) با نشان‌های فارسی رندر می‌شوند.
+   فقط برای درون KaTeX استفاده می‌شود تا ارقام فرمول‌ها فارسی باشند. */
+
+@font-face {
+  font-family: "Vazirmatn FD";
+  src: url("Vazirmatn-FD-Regular.woff2") format("woff2");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn FD";
+  src: url("Vazirmatn-FD-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn FD";
+  src: url("Vazirmatn-FD-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn FD";
+  src: url("Vazirmatn-FD-Bold.woff2") format("woff2");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="درس‌یار ریاضی — حل تعاملی، مرحله‌به‌مرحله و انیمیشنی مسئلهٔ مجموع جمله‌های دنبالهٔ حسابی" />
+  <meta name="theme-color" content="#05070f" />
+  <title>درس‌یار ریاضی | حل تعاملی دنبالهٔ حسابی</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+  <!-- فونت‌ها -->
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <!-- KaTeX (فرمول‌نویسی حرفه‌ای) -->
+  <link rel="stylesheet" href="assets/katex/katex.min.css" />
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/typography.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/lesson.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* پردهٔ بارگذاری اولیه */
+    #boot-splash {
+      position: fixed; inset: 0; z-index: 300;
+      display: grid; place-items: center;
+      background: #05070f;
+      color: #a8b2d0;
+      font-family: "Vazirmatn", sans-serif;
+      transition: opacity .5s ease;
+    }
+    #boot-splash.done { opacity: 0; pointer-events: none; }
+    #boot-splash .mark { font-size: 42px; animation: boot-pulse 1.2s ease-in-out infinite; }
+    @keyframes boot-pulse { 0%,100%{opacity:.35} 50%{opacity:1} }
+  </style>
+</head>
+<body>
+
+  <div id="boot-splash" aria-hidden="true"><div class="mark">Σ</div></div>
+
+  <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+
+  <header id="app-header" class="app-header"></header>
+
+  <main id="main">
+    <!-- صفحهٔ سؤال -->
+    <div id="home-view" class="container"></div>
+
+    <!-- صفحهٔ درس -->
+    <div id="lesson-view" hidden></div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container" id="app-footer"></div>
+  </footer>
+
+  <!-- ابزارها -->
+  <script src="assets/katex/katex.min.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+
+  <!-- هسته -->
+  <script src="js/utils.js"></script>
+  <script src="js/math/fraction.js"></script>
+  <script src="js/math/sequence.js"></script>
+  <script src="js/math/quadratic.js"></script>
+  <script src="js/math-engine.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/sound-engine.js"></script>
+  <script src="js/formula-engine.js"></script>
+  <script src="js/animation-engine.js"></script>
+
+  <!-- کامپوننت‌ها -->
+  <script src="components/step-card.js"></script>
+  <script src="components/explanation-card.js"></script>
+  <script src="components/formula-card.js"></script>
+  <script src="components/sequence-display.js"></script>
+  <script src="components/value-chips.js"></script>
+  <script src="components/header.js"></script>
+  <script src="components/toast.js"></script>
+  <script src="components/drawer.js"></script>
+  <script src="components/hero.js"></script>
+  <script src="components/builder-panel.js"></script>
+  <script src="components/progress.js"></script>
+  <script src="components/controls.js"></script>
+  <script src="components/final-result.js"></script>
+
+  <!-- صحنه‌های درس -->
+  <script src="scenes/scene-01-recognize.js"></script>
+  <script src="scenes/scene-02-first-term.js"></script>
+  <script src="scenes/scene-03-common-difference.js"></script>
+  <script src="scenes/scene-04-formula.js"></script>
+  <script src="scenes/scene-05-substitution.js"></script>
+  <script src="scenes/scene-06-quadratic.js"></script>
+  <script src="scenes/scene-07-delta.js"></script>
+  <script src="scenes/scene-08-roots.js"></script>
+  <script src="scenes/scene-09-verify.js"></script>
+
+  <!-- داده‌ها و موتور درس -->
+  <script src="data/lessons.js"></script>
+  <script src="data/lessons/arithmetic-sum.js"></script>
+  <script src="js/lesson-engine.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // برداشتن پردهٔ بارگذاری پس از آماده شدن
+    (function () {
+      var done = function () {
+        var s = document.getElementById("boot-splash");
+        if (s) {
+          s.classList.add("done");
+          setTimeout(function () { s.remove(); }, 600);
+        }
+      };
+      if (document.readyState === "complete") setTimeout(done, 300);
+      else window.addEventListener("load", function () { setTimeout(done, 300); });
+    })();
+  </script>
+</body>
+</html>

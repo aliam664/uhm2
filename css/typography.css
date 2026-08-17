@@ -1,0 +1,146 @@
+/* ============================================================
+   تایپوگرافی — Vazirmatn + KaTeX
+   ============================================================ */
+
+html {
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-fa);
+  font-size: var(--fs-md);
+  line-height: 1.85;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* ---- Headings ---- */
+
+h1, h2, h3, h4 {
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.h-display {
+  font-size: var(--fs-3xl);
+  font-weight: 900;
+  line-height: 1.35;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.h-1 { font-size: var(--fs-2xl); color: var(--text-hi); }
+.h-2 { font-size: var(--fs-xl); color: var(--text-hi); }
+.h-3 { font-size: var(--fs-lg); color: var(--text-hi); }
+
+.lead {
+  font-size: var(--fs-lg);
+  color: var(--text-mid);
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+.text-low { color: var(--text-low); }
+.text-mid { color: var(--text-mid); }
+.text-hi { color: var(--text-hi); }
+.text-accent { color: var(--accent-hi); }
+.text-gold { color: var(--gold-hi); }
+.text-success { color: var(--success); }
+.text-danger { color: var(--danger); }
+.text-warn { color: var(--warn); }
+
+/* ---- Numerals ----
+   اعداد فارسی داخل متن؛ اعداد لاتین فقط برای ورودی خام */
+
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "ss01";
+}
+
+.num-lg {
+  font-size: 1.35em;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- فرمول‌نویسی (KaTeX) ----
+   ارقام و علائم از Vazirmatn FD (ارقام فارسی) و
+   حروف و ساختار از فونت‌های ریاضی KaTeX نمایش داده می‌شوند */
+
+.katex {
+  font-family: var(--font-katex-fa);
+}
+
+.formula,
+.katex-display {
+  direction: ltr;
+}
+
+.katex-display {
+  margin: 0;
+}
+
+.katex-display > .katex {
+  white-space: normal;
+}
+
+.formula {
+  font-size: var(--fs-lg);
+  line-height: 2.4;
+}
+
+.formula--xl { font-size: var(--fs-xl); }
+.formula--hero { font-size: var(--fs-2xl); }
+
+/* قطعات هایلایت‌شونده داخل فرمول (توسط \htmlClass) */
+
+.fx-hl {
+  color: var(--gold-hi);
+  border-radius: 6px;
+  padding: 0.08em 0.14em;
+  margin: 0 -0.02em;
+  background: var(--gold-soft);
+  box-shadow: 0 0 0 1px var(--gold-line);
+}
+
+.fx-hl--accent {
+  color: var(--accent-hi);
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 1px var(--accent-line);
+}
+
+.fx-dim { opacity: 0.34; }
+
+.fx-old {
+  opacity: 0.4;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  color: var(--text-low);
+}
+
+.fx-new {
+  color: var(--accent-hi);
+}
+
+/* ---- Links ---- */
+
+a {
+  color: var(--accent-hi);
+  text-decoration: none;
+  transition: color var(--t-fast) var(--ease-out);
+}
+
+a:hover { color: var(--accent-2); }
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text-hi);
+}

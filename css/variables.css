@@ -1,0 +1,196 @@
+/* ============================================================
+   درس‌یار ریاضی — Design Tokens
+   ============================================================ */
+
+:root {
+  /* ---- Typography ---- */
+  --font-fa: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+  --font-katex-fa: "Vazirmatn FD", "KaTeX_Main", "Times New Roman", serif;
+
+  /* ---- Fluid type scale ---- */
+  --fs-xs: clamp(0.72rem, 0.68rem + 0.2vw, 0.8rem);
+  --fs-sm: clamp(0.82rem, 0.78rem + 0.22vw, 0.92rem);
+  --fs-md: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+  --fs-lg: clamp(1.08rem, 1rem + 0.4vw, 1.22rem);
+  --fs-xl: clamp(1.3rem, 1.14rem + 0.8vw, 1.6rem);
+  --fs-2xl: clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem);
+  --fs-3xl: clamp(2rem, 1.6rem + 2vw, 2.9rem);
+
+  /* ---- Radii ---- */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* ---- Spacing ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 0.18s;
+  --t-med: 0.32s;
+  --t-slow: 0.55s;
+
+  /* ---- Layout ---- */
+  --container: 1180px;
+  --header-h: 68px;
+}
+
+/* ============================================================
+   تم تیره (پیش‌فرض) — Deep Space Navy
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-0: #05070f;
+  --bg-1: #080c18;
+  --bg-2: #0b1122;
+
+  --surface: rgba(146, 164, 220, 0.05);
+  --surface-2: rgba(146, 164, 220, 0.085);
+  --surface-3: rgba(146, 164, 220, 0.13);
+  --surface-solid: #0c1224;
+
+  --stroke: rgba(152, 170, 222, 0.13);
+  --stroke-2: rgba(152, 170, 222, 0.22);
+  --stroke-3: rgba(152, 170, 222, 0.34);
+
+  --text-hi: #edf1fd;
+  --text-mid: #a8b2d0;
+  --text-low: #6d7796;
+  --text-faint: #47506c;
+
+  --accent: #7f8cf8;
+  --accent-hi: #a5b0ff;
+  --accent-ink: #0a0e20;
+  --accent-soft: rgba(127, 140, 248, 0.14);
+  --accent-line: rgba(127, 140, 248, 0.38);
+
+  --accent-2: #45c8e8;
+  --accent-2-soft: rgba(69, 200, 232, 0.13);
+
+  --gold: #e8c57e;
+  --gold-hi: #f4d9a4;
+  --gold-soft: rgba(232, 197, 126, 0.13);
+  --gold-line: rgba(232, 197, 126, 0.4);
+
+  --success: #3fd69b;
+  --success-soft: rgba(63, 214, 155, 0.12);
+  --success-line: rgba(63, 214, 155, 0.36);
+
+  --danger: #f47c7c;
+  --danger-soft: rgba(244, 124, 124, 0.12);
+  --danger-line: rgba(244, 124, 124, 0.35);
+
+  --warn: #ecb45e;
+  --warn-soft: rgba(236, 180, 94, 0.12);
+  --warn-line: rgba(236, 180, 94, 0.35);
+
+  --grad-brand: linear-gradient(135deg, #7f8cf8 0%, #45c8e8 100%);
+  --grad-gold: linear-gradient(135deg, #f0d198 0%, #d9a95c 100%);
+  --grad-text: linear-gradient(120deg, #eef1ff 15%, #a5b0ff 55%, #45c8e8 100%);
+
+  --glow-accent: 0 0 0 1px rgba(127, 140, 248, 0.25), 0 8px 40px -8px rgba(127, 140, 248, 0.45);
+  --glow-gold: 0 0 0 1px rgba(232, 197, 126, 0.3), 0 8px 44px -8px rgba(232, 197, 126, 0.4);
+  --glow-success: 0 0 0 1px rgba(63, 214, 155, 0.3), 0 10px 44px -10px rgba(63, 214, 155, 0.45);
+
+  --shadow-1: 0 2px 6px -1px rgba(2, 5, 16, 0.5), 0 8px 24px -8px rgba(2, 5, 16, 0.45);
+  --shadow-2: 0 4px 10px -2px rgba(2, 5, 16, 0.55), 0 24px 56px -16px rgba(2, 5, 16, 0.65);
+  --shadow-3: 0 8px 18px -4px rgba(2, 5, 16, 0.6), 0 40px 90px -24px rgba(2, 5, 16, 0.75);
+
+  --header-bg: rgba(6, 9, 20, 0.72);
+  --scrim: rgba(3, 5, 12, 0.6);
+  --noise-opacity: 0.05;
+
+  --blob-1: rgba(127, 140, 248, 0.14);
+  --blob-2: rgba(69, 200, 232, 0.1);
+  --blob-3: rgba(232, 197, 126, 0.06);
+
+  --grid-line: rgba(152, 170, 222, 0.05);
+}
+
+/* ============================================================
+   تم روشن — Clean Paper
+   ============================================================ */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-0: #eef1f9;
+  --bg-1: #f4f6fc;
+  --bg-2: #ffffff;
+
+  --surface: rgba(255, 255, 255, 0.66);
+  --surface-2: rgba(255, 255, 255, 0.85);
+  --surface-3: rgba(23, 32, 66, 0.06);
+  --surface-solid: #ffffff;
+
+  --stroke: rgba(24, 34, 74, 0.1);
+  --stroke-2: rgba(24, 34, 74, 0.16);
+  --stroke-3: rgba(24, 34, 74, 0.26);
+
+  --text-hi: #171e38;
+  --text-mid: #46506e;
+  --text-low: #737d9c;
+  --text-faint: #a0a8c2;
+
+  --accent: #5a67e8;
+  --accent-hi: #4753d6;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(90, 103, 232, 0.1);
+  --accent-line: rgba(90, 103, 232, 0.32);
+
+  --accent-2: #1793b8;
+  --accent-2-soft: rgba(23, 147, 184, 0.1);
+
+  --gold: #b07f26;
+  --gold-hi: #8f6516;
+  --gold-soft: rgba(176, 127, 38, 0.1);
+  --gold-line: rgba(176, 127, 38, 0.32);
+
+  --success: #149469;
+  --success-soft: rgba(20, 148, 105, 0.1);
+  --success-line: rgba(20, 148, 105, 0.3);
+
+  --danger: #d24949;
+  --danger-soft: rgba(210, 73, 73, 0.09);
+  --danger-line: rgba(210, 73, 73, 0.28);
+
+  --warn: #b47a1c;
+  --warn-soft: rgba(180, 122, 28, 0.1);
+  --warn-line: rgba(180, 122, 28, 0.3);
+
+  --grad-brand: linear-gradient(135deg, #5a67e8 0%, #1793b8 100%);
+  --grad-gold: linear-gradient(135deg, #d3a559 0%, #a56d1d 100%);
+  --grad-text: linear-gradient(120deg, #1d2547 20%, #4753d6 60%, #1793b8 100%);
+
+  --glow-accent: 0 0 0 1px rgba(90, 103, 232, 0.22), 0 10px 36px -10px rgba(90, 103, 232, 0.4);
+  --glow-gold: 0 0 0 1px rgba(176, 127, 38, 0.25), 0 10px 36px -10px rgba(176, 127, 38, 0.35);
+  --glow-success: 0 0 0 1px rgba(20, 148, 105, 0.25), 0 10px 40px -12px rgba(20, 148, 105, 0.4);
+
+  --shadow-1: 0 1px 2px rgba(23, 30, 66, 0.06), 0 8px 20px -8px rgba(23, 30, 66, 0.12);
+  --shadow-2: 0 2px 6px rgba(23, 30, 66, 0.07), 0 20px 44px -14px rgba(23, 30, 66, 0.18);
+  --shadow-3: 0 4px 12px rgba(23, 30, 66, 0.08), 0 36px 80px -20px rgba(23, 30, 66, 0.24);
+
+  --header-bg: rgba(246, 248, 253, 0.78);
+  --scrim: rgba(23, 30, 66, 0.32);
+  --noise-opacity: 0.035;
+
+  --blob-1: rgba(90, 103, 232, 0.13);
+  --blob-2: rgba(23, 147, 184, 0.1);
+  --blob-3: rgba(176, 127, 38, 0.07);
+
+  --grid-line: rgba(24, 34, 74, 0.05);
+}

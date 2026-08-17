@@ -1,0 +1,109 @@
+/* ============================================================
+   واکنش‌گرایی — موبایل، تبلت، لپ‌تاپ، دسکتاپ
+   ============================================================ */
+
+/* ---------- لپ‌تاپ کوچک / تبلت افقی ---------- */
+
+@media (max-width: 1024px) {
+  :root { --container: 920px; }
+
+  .progress-node .lbl { max-width: 13vw; }
+}
+
+/* ---------- تبلت ---------- */
+
+@media (max-width: 860px) {
+  :root { --header-h: 62px; }
+
+  .duo-grid { grid-template-columns: 1fr; }
+
+  .builder-grid { grid-template-columns: 1fr 1fr; }
+
+  .paths-grid { grid-template-columns: 1fr; }
+
+  .explain-row { grid-template-columns: 1fr; gap: 6px; }
+
+  .explain-tag { margin-top: 0; }
+
+  .progress-wrap { padding: var(--sp-4) var(--sp-3) var(--sp-4); }
+
+  .progress-rail {
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 34px;
+    padding: 0 var(--node-size) 4px;
+    scrollbar-width: none;
+  }
+
+  .progress-rail::-webkit-scrollbar { display: none; }
+
+  .progress-line { display: none; }
+
+  .progress-node { width: auto; flex: none; }
+
+  .progress-node .lbl { max-width: 92px; white-space: normal; }
+}
+
+/* ---------- موبایل ---------- */
+
+@media (max-width: 620px) {
+  main { padding-top: calc(var(--header-h) + var(--sp-4)); padding-bottom: var(--sp-6); }
+
+  .brand-sub { display: none; }
+  .brand-name { font-size: var(--fs-md); }
+
+  .hero { padding: var(--sp-5) var(--sp-4); }
+
+  .hero-question { font-size: var(--fs-md); line-height: 2.3; }
+
+  .builder-grid { grid-template-columns: 1fr; }
+
+  .step-card { padding: var(--sp-4) var(--sp-3); gap: var(--sp-4); }
+
+  .step-icon { width: 44px; height: 44px; border-radius: 13px; }
+  .step-icon svg { width: 21px; height: 21px; }
+
+  .step-title { font-size: var(--fs-lg); }
+
+  .formula { font-size: var(--fs-md); }
+  .formula--hero, .formula--xl { font-size: var(--fs-lg); }
+
+  .seq-display { --term-w: 52px; }
+  .seq-term { font-size: 1.05rem; border-radius: 13px; }
+  .seq-link { min-width: 58px; }
+
+  .lesson-controls {
+    border-radius: var(--r-lg);
+    gap: 6px;
+    width: 100%;
+  }
+
+  .lesson-controls .btn span.btn-label { display: none; }
+
+  .lesson-controls .btn { min-height: 48px; min-width: 48px; padding: 0 14px; }
+
+  .ctl-hint { display: none; }
+
+  .v-chip { min-width: 92px; padding: 10px var(--sp-3); }
+  .v-chip .v-val { font-size: var(--fs-lg); }
+
+  .lesson-context { flex-direction: column; align-items: stretch; }
+  .lesson-context .row { justify-content: space-between; }
+
+  .drawer { width: 100vw; border-inline-start: none; }
+}
+
+/* ---------- موبایل کوچک ---------- */
+
+@media (max-width: 400px) {
+  .seq-display { --term-w: 46px; }
+  .seq-link { min-width: 48px; }
+  .segmented button { padding: 6px 10px; }
+}
+
+/* ---------- چاپ ---------- */
+
+@media print {
+  .app-header, .lesson-controls, .bg-scene, .bg-glyphs, .toast-zone, .drawer, .drawer-scrim { display: none !important; }
+  body { background: #fff; color: #000; }
+}
