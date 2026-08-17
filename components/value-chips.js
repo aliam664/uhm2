@@ -15,7 +15,7 @@
     const el = U.el("div.value-chips");
     const chips = items.map((it) => {
       const chip = U.el("div.v-chip", {}, [
-        U.el("span.v-name", { text: it.name }),
+        U.el("span.v-name", { html: U.rich(it.name) }),
         U.el("span.v-val", { text: it.value }),
       ]);
       el.appendChild(chip);
@@ -45,7 +45,7 @@
   function pathCard(opts) {
     const valid = opts.kind === "valid";
     const headEl = U.el("div.path-head", {
-      html: U.icons[valid ? "checkCircle" : "warn"] + U.escapeHtml(opts.title),
+      html: U.icons[valid ? "checkCircle" : "warn"] + U.rich(opts.title),
     });
 
     const el = U.el("div.path-card" + (valid ? ".path-card--valid" : ".path-card--rejected"));
@@ -66,7 +66,7 @@
 
     let noteEl = null;
     if (opts.note) {
-      noteEl = U.el("p.path-note", { text: opts.note });
+      noteEl = U.el("p.path-note", { html: U.rich(opts.note) });
       el.appendChild(noteEl);
     }
 

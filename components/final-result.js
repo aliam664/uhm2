@@ -17,7 +17,7 @@
 
     const orb = U.el("div.check-orb", { html: U.icons.checkCircle, aria: { hidden: "true" } });
 
-    const messageEl = U.el("p.final-message", { text: opts.message });
+    const messageEl = U.el("p.final-message", { html: U.rich(opts.message) });
 
     const recapEl = U.el("div.final-recap");
     const card = U.el("section.final-card", {}, [
@@ -63,8 +63,8 @@
         html: icon,
         aria: { hidden: "true" },
       }),
-      U.el("h3.final-message", { text: opts.title }),
-      U.el("p.lead", { text: opts.message, style: { textAlign: "center", maxWidth: "56ch" } }),
+      U.el("h3.final-message", { html: U.rich(opts.title) }),
+      U.el("p.lead", { html: U.rich(opts.message), style: { textAlign: "center", maxWidth: "56ch" } }),
     ]);
     return { el: card };
   }

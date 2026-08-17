@@ -65,7 +65,7 @@
     const chips = labels.map((l) =>
       U.el("span.f-label" + (l.tone ? ".f-label--" + l.tone : ""), {}, [
         U.el("span.swatch"),
-        U.el("span", { text: l.text }),
+        U.el("span", { html: U.rich(l.text) }),
       ])
     );
     chips.forEach((c) => el.appendChild(c));

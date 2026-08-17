@@ -31,7 +31,7 @@
       const row = U.el("div.explain-row.explain-row--" + key, {
         html:
           '<span class="explain-tag">' + U.icons[tag.icon] + tag.label + "</span>" +
-          '<div class="explain-body">' + U.escapeHtml(text) + "</div>",
+          '<div class="explain-body">' + U.rich(text) + "</div>",
       });
       rows[key] = row;
       el.appendChild(row);

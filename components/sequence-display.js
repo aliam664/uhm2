@@ -35,7 +35,7 @@
       });
       if (i === 0 && opts.firstTag) {
         term.appendChild(U.el("span.seq-brace"));
-        term.appendChild(U.el("span.seq-tag", { text: opts.firstTag }));
+        term.appendChild(U.el("span.seq-tag", { html: U.rich(opts.firstTag) }));
       }
       termEls.push(term);
       el.appendChild(term);

@@ -243,7 +243,7 @@
     const stepper = U.el("div.stepper", {}, [up, down]);
 
     const wrap = U.el("div.field", {}, [
-      U.el("label", { for: input.id, html: "<bdi>" + o.symbol + "</bdi> — " + U.escapeHtml(o.label) }),
+      U.el("label", { for: input.id, html: "<bdi>" + U.rich(o.symbol) + "</bdi> — " + U.escapeHtml(o.label) }),
       U.el("div.input-wrap", {}, [input, stepper]),
       o.hint ? U.el("span.hint", { text: o.hint }) : null,
     ].filter(Boolean));

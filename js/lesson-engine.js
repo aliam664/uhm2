@@ -204,7 +204,7 @@
         if (!data) return 0;
         const savedQ = JSON.parse(data.question || "null");
         if (savedQ && rawQuestion && JSON.stringify(savedQ) === JSON.stringify(rawQuestion)) {
-          return U.clamp(data.step || 0, 0, this.scenes.length - 1);
+          return U.clamp(data.step || 0, 0, STEP_KEYS.length - 1);
         }
       } catch (e) { /* بی‌صدا */ }
       return 0;

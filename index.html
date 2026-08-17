@@ -9,6 +9,16 @@
 
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
 
+  <!-- بوت زودهنگام تم (قبل از رندر، تا فلش تم رخ ندهد) -->
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("doryar.settings.v1") || "{}");
+        if (s.theme === "light") document.documentElement.setAttribute("data-theme", "light");
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- فونت‌ها -->
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <!-- KaTeX (فرمول‌نویسی حرفه‌ای) -->

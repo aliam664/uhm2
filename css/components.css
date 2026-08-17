@@ -304,8 +304,8 @@
   border-radius: var(--r-pill);
   background: var(--surface-3);
   border: 1px solid var(--stroke-2);
-  transition: inset-inline-start 0.45s var(--ease-spring), width 0.45s var(--ease-spring);
-  will-change: inset-inline-start, width;
+  transition: left 0.45s var(--ease-spring), width 0.45s var(--ease-spring);
+  will-change: left, width;
 }
 
 /* ---------- Segmented (کنترل سرعت) ---------- */
@@ -578,8 +578,7 @@
   overscroll-behavior: contain;
 }
 
-[data-theme="light"] .drawer { transform: translateX(102%); }
-.drawer.is-open { transform: translateX(0) !important; }
+.drawer.is-open { transform: translateX(0); }
 
 .drawer-head {
   position: sticky;

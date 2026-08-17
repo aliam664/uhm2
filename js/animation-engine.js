@@ -302,13 +302,10 @@
       if (old) old.remove();
       stageEl.appendChild(build());
       gsap.set(stageEl, { opacity: 1 });
-      /* ارتفاع تازه را قفل کن و بعد از یک فریم آزاد بگذار */
+      /* قفل ارتفاع تازه تا گذر مرحلهٔ بعد نرم باشد */
       stageEl.style.minHeight = "0px";
       const h = stageEl.offsetHeight;
-      stageEl.style.minHeight = Math.max(h, 300) + "px";
-      requestAnimationFrame(() => {
-        stageEl.style.minHeight = "0px";
-      });
+      stageEl.style.minHeight = Math.max(h, 320) + "px";
     });
 
     return tl;

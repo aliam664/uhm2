@@ -1,0 +1,17 @@
+{
+  "name": "doryar-math",
+  "version": "1.0.0",
+  "description": "درس‌یار ریاضی — پلتفرم آموزش تعاملی ریاضی (حل گام‌به‌گام مجموع دنبالهٔ حسابی)",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "node tests/math.test.mjs",
+    "serve": "python3 -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aliam664/uhm2.git"
+  },
+  "keywords": ["education", "math", "persian", "arithmetic-sequence", "interactive", "katex", "gsap"],
+  "license": "SEE LICENSE IN LICENSES.md"
+}

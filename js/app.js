@@ -71,9 +71,7 @@
           question = { sequence: U.fa(values.a1 || "2") + " ، " + U.fa((Number(values.a1) || 2) + (Number(values.d) || 5)) + " ، " + U.fa((Number(values.a1) || 2) + 2 * (Number(values.d) || 5)), target: U.fa(values.target || "87") };
         }
 
-        const resumeStep = App.LessonEngine.scenes.length
-          ? App.LessonEngine.loadPersistedStep(self.currentRawParams())
-          : 0;
+        const resumeStep = App.LessonEngine.loadPersistedStep(self.currentRawParams());
 
         App.Components.Hero.render(heroMount, {
           question,
@@ -151,9 +149,9 @@
 
       /* نوار خلاصهٔ سؤال جاری */
       const ctxChips = U.el("div.ctx-chips", {}, [
-        U.el("span.chip", { html: U.icons.sigma + "<span>a₁ = " + solution.input.a1.toFa() + "</span>" }),
-        U.el("span.chip", { html: U.icons.swap + "<span>d = " + solution.input.d.toFa() + "</span>" }),
-        U.el("span.chip.chip--gold", { html: U.icons.target + "<span>Sₙ = " + solution.input.target.toFa() + "</span>" }),
+        U.el("span.chip", { html: U.icons.sigma + "<span>" + U.rich("a₁ = " + solution.input.a1.toFa()) + "</span>" }),
+        U.el("span.chip", { html: U.icons.swap + "<span>" + U.rich("d = " + solution.input.d.toFa()) + "</span>" }),
+        U.el("span.chip.chip--gold", { html: U.icons.target + "<span>" + U.rich("Sₙ = " + solution.input.target.toFa()) + "</span>" }),
       ]);
 
       const changeBtn = U.el("button.btn.btn--ghost", {
@@ -171,6 +169,10 @@
           if (self.builder) self.builder.clearNotice();
           App.State.set({ phase: "home" });
           self.els.lesson.hidden = true;
+          /* صفحهٔ اصلی را تازه بساز تا کارت سؤال و دکمهٔ «ادامه» به‌روز باشند */
+          const saved = self.currentRawParams();
+          const def = App.Data.arithmeticSum.defaults;
+          self.renderHome(saved || { a1: def.a1, d: def.d, target: def.target }, saved);
           self.els.home.hidden = false;
           window.scrollTo({ top: 0, behavior: "smooth" });
         },

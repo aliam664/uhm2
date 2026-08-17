@@ -24,7 +24,7 @@
       const lbl = U.el("span.lbl", { text: s.short });
       const node = U.el("button.progress-node", {
         type: "button",
-        "aria-label": "مرحلهٔ " + U.fa(i + 1) + ": " + s.title + (i === 0 ? "" : ""),
+        "aria-label": "مرحلهٔ " + U.fa(i + 1) + " از " + U.fa(total) + ": " + s.title,
         onClick: () => opts.onJump && opts.onJump(i),
       }, [dot, lbl]);
       node.setAttribute("aria-current", "false");
