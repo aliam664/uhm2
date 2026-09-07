@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>DOCKLANDS: PROTOCOL OSMOSIS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="game-canvas"></canvas>
+    <div class="scanlines"></div>
+
+    <!-- ==========================================
+         MAIN MENU
+         ========================================== -->
+    <div id="main-menu-container" class="overlay-container">
+      <div class="menu-card">
+        <div class="title-badge">TACTICAL ARENA BROWSER GAME</div>
+        <h1 class="game-title">DOCKLANDS</h1>
+        <h2 class="game-subtitle">PROTOCOL OSMOSIS • INDUSTRIAL WARFARE</h2>
+
+        <div class="menu-button-stack">
+          <button id="btn-play" class="btn-primary">
+            <span>▶ PLAY MATCH</span>
+          </button>
+          <button id="btn-difficulty" class="btn-secondary">
+            <span>⚔️ DIFFICULTY</span>
+          </button>
+          <button id="btn-how-to-play" class="btn-secondary">
+            <span>📖 HOW TO PLAY</span>
+          </button>
+          <button id="btn-settings" class="btn-secondary">
+            <span>⚙️ SETTINGS</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         DIFFICULTY SELECTION MODAL
+         ========================================== -->
+    <div id="difficulty-modal" class="modal-backdrop hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">SELECT AI DIFFICULTY</h2>
+          <button id="btn-close-diff" class="btn-close">✕</button>
+        </div>
+
+        <div class="difficulty-grid">
+          <!-- EASY CARD -->
+          <div id="diff-card-easy" class="interactive-card">
+            <div class="diff-header">
+              EASY <span class="diff-badge badge-easy">Casual</span>
+            </div>
+            <p class="diff-desc">
+              Moderate AI response time with predictable positioning. Recommended for learning map routes and game mechanics.
+            </p>
+            <ul class="diff-traits">
+              <li>⏱️ Slower reaction latency (350ms)</li>
+              <li>🎯 Relaxed aim accuracy</li>
+              <li>🛡️ Basic base defense</li>
+              <li>⚠️ Naive threat assessment</li>
+            </ul>
+          </div>
+
+          <!-- HARD CARD -->
+          <div id="diff-card-hard" class="interactive-card active-diff">
+            <div class="diff-header">
+              HARD <span class="diff-badge badge-hard">Kyuma AI</span>
+            </div>
+            <p class="diff-desc">
+              Mastermind AI engine. Multi-layer Utility system, synchronized team formations, predictive ballistics, flanking, pincer ambushes, and adaptive endgame strategies.
+            </p>
+            <ul class="diff-traits">
+              <li>⚡ Fast reflexes (80ms) & predictive aim</li>
+              <li>🧠 Shared Team Brain blackboard</li>
+              <li>🔄 Dynamic role swapping (Raider, Flanker, Anchor)</li>
+              <li>📊 Adaptive posture (Defend lead / Comeback siege)</li>
+            </ul>
+          </div>
+        </div>
+
+        <button id="btn-save-diff" class="btn-primary" style="width: 100%;" onclick="document.getElementById('difficulty-modal').classList.add('hidden')">
+          CONFIRM SELECTION
+        </button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         HOW TO PLAY MODAL
+         ========================================== -->
+    <div id="how-to-play-modal" class="modal-backdrop hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">TACTICAL BRIEFING</h2>
+          <button id="btn-close-how-to-play" class="btn-close">✕</button>
+        </div>
+
+        <div class="guide-section">
+          <h3 class="guide-title">🎮 CONTROLS</h3>
+          <p class="guide-text">
+            <span class="key-badge">W</span> <span class="key-badge">A</span> <span class="key-badge">S</span> <span class="key-badge">D</span> — Move Agent<br>
+            <span class="key-badge">MOUSE</span> — Aim & Face Direction<br>
+            <span class="key-badge">LEFT CLICK</span> — Fire Tactical Plasma Blaster<br>
+            <span class="key-badge">SPACE</span> / <span class="key-badge">RIGHT CLICK</span> — Tactical Dash / Dodge Roll (Invulnerability frames)<br>
+            <span class="key-badge">SHIFT</span> — Sprint (Consumes Stamina)<br>
+            <span class="key-badge">Q</span> — Tactical EMP Shockwave (Knockback + Slow + Shield disrupt)<br>
+            <span class="key-badge">ESC</span> — Pause Menu
+          </p>
+        </div>
+
+        <div class="guide-section">
+          <h3 class="guide-title">🚩 BASES & TERRITORY CONTROL</h3>
+          <p class="guide-text">
+            There are 3 Industrial Bases on the docklands: <strong>Alpha (Depot)</strong>, <strong>Bravo (Plaza)</strong>, and <strong>Charlie (Quay)</strong>.<br>
+            • Stand inside a base zone to capture it. Multiple teammates capture faster.<br>
+            • Capturing grants <strong>+250 PTS</strong> instantly and <strong>+10 PTS/sec</strong> continuously.<br>
+            • <strong>Base Raiding:</strong> Infiltrate an enemy-held base core to drain <strong>200 PTS</strong> directly to your team!
+          </p>
+        </div>
+
+        <div class="guide-section">
+          <h3 class="guide-title">🔗 OSMOSIS TEAM SYNERGY LINK</h3>
+          <p class="guide-text">
+            Stay in close proximity to living teammates to activate the <strong>Osmosis Link</strong>.<br>
+            Linked agents gain an electric synergy beam, <strong>+15% Movement Speed</strong>, and <strong>25% Damage Reduction</strong>!
+          </p>
+        </div>
+
+        <div class="guide-section">
+          <h3 class="guide-title">👑 SUPER RELIC EVENT</h3>
+          <p class="guide-text">
+            At the 50% match mark, the legendary <strong>King of Clubs Relic</strong> spawns in Central Plaza Bravo. Securing it awards a massive <strong>+650 PTS</strong>!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SETTINGS MODAL
+         ========================================== -->
+    <div id="settings-modal" class="modal-backdrop hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">GAME SETTINGS</h2>
+          <button id="btn-close-settings" class="btn-close">✕</button>
+        </div>
+
+        <div class="setting-row">
+          <div>
+            <div class="setting-label">Master Volume</div>
+            <div class="setting-desc">Overall procedural audio level</div>
+          </div>
+          <input type="range" id="setting-master-vol" min="0" max="100" value="80">
+        </div>
+
+        <div class="setting-row">
+          <div>
+            <div class="setting-label">SFX Volume</div>
+            <div class="setting-desc">Weapon shots, impacts & alerts</div>
+          </div>
+          <input type="range" id="setting-sfx-vol" min="0" max="100" value="85">
+        </div>
+
+        <div class="setting-row">
+          <div>
+            <div class="setting-label">Music Volume</div>
+            <div class="setting-desc">Procedural Cyberpunk synth BGM</div>
+          </div>
+          <input type="range" id="setting-music-vol" min="0" max="100" value="60">
+        </div>
+
+        <div class="setting-row">
+          <div>
+            <div class="setting-label">Screen Shake (Trauma)</div>
+            <div class="setting-desc">Dynamic impact feedback & camera shake</div>
+          </div>
+          <input type="checkbox" id="setting-screenshake" checked>
+        </div>
+
+        <div class="setting-row">
+          <div>
+            <div class="setting-label">Show FPS</div>
+            <div class="setting-desc">Performance display in top-left</div>
+          </div>
+          <input type="checkbox" id="setting-fps">
+        </div>
+
+        <div class="setting-row">
+          <div>
+            <div class="setting-label">Developer Debug Mode</div>
+            <div class="setting-desc">Draw A* grid, AI paths & utility scores (or press ` / F3)</div>
+          </div>
+          <input type="checkbox" id="setting-debug">
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         PAUSE MODAL
+         ========================================== -->
+    <div id="pause-modal" class="modal-backdrop hidden">
+      <div class="menu-card" style="max-width: 400px;">
+        <h2 class="game-title" style="font-size: 28px; margin-bottom: 20px;">GAME PAUSED</h2>
+        <div class="menu-button-stack">
+          <button id="btn-resume" class="btn-primary">RESUME</button>
+          <button id="btn-restart" class="btn-secondary">RESTART MATCH</button>
+          <button id="btn-pause-settings" class="btn-secondary">SETTINGS</button>
+          <button id="btn-main-menu" class="btn-danger">ABANDON TO MENU</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         MATCH END SCOREBOARD MODAL
+         ========================================== -->
+    <div id="match-end-modal" class="modal-backdrop hidden">
+      <div class="modal-content" style="max-width: 720px; text-align: center;">
+        <h1 id="match-end-title" class="game-title text-cyan glow-cyan" style="font-size: 48px;">VICTORY</h1>
+        <p id="match-end-subtitle" class="game-subtitle" style="margin-bottom: 16px;">BLUE VANGUARD SECURED THE DOCKLANDS</p>
+
+        <div class="score-display-box">
+          <div class="score-box-item">
+            <div style="color: var(--blue-primary); font-size: 12px; font-weight: bold;">BLUE VANGUARD</div>
+            <div id="end-blue-score" class="score-box-num text-cyan">1,450</div>
+          </div>
+          <div style="font-size: 24px; color: var(--text-muted); font-weight: 900;">VS</div>
+          <div class="score-box-item">
+            <div style="color: var(--red-primary); font-size: 12px; font-weight: bold;">RED KYUMA</div>
+            <div id="end-red-score" class="score-box-num text-crimson">1,120</div>
+          </div>
+        </div>
+
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th>AGENT</th>
+              <th>KILLS</th>
+              <th>DEATHS</th>
+              <th>DAMAGE</th>
+              <th>ITEMS</th>
+              <th>POINTS</th>
+            </tr>
+          </thead>
+          <tbody id="end-stats-body">
+            <!-- Dynamic stats generated in JS -->
+          </tbody>
+        </table>
+
+        <div style="display: flex; gap: 14px; justify-content: center; margin-top: 20px;">
+          <button id="btn-play-again" class="btn-primary" style="flex: 1;">PLAY AGAIN</button>
+          <button id="btn-end-menu" class="btn-secondary" style="flex: 1;">MAIN MENU</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript Modules in Dependency Order -->
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/pathfinding.js"></script>
+  <script src="js/combat.js"></script>
+  <script src="js/items.js"></script>
+  <script src="js/base.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/aiBrain.js"></script>
+  <script src="js/teamAI.js"></script>
+  <script src="js/enemy.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
